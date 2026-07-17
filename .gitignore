@@ -1,0 +1,10 @@
+# raw data (large, freely re-downloadable from CDC/NCHS — see data/raw/README.md)
+data/raw/*.xpt
+data/raw/*.dat
+data/raw/*.txt
+!data/raw/README.md
+
+data/derived/*.sas7bdat
+
+.DS_Store
+*.log

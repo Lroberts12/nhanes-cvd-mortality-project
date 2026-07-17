@@ -1,0 +1,61 @@
+# Cardiovascular Risk Factors and Mortality: A NHANES Cohort Analysis
+
+A SAS-based epidemiologic analysis of midlife cardiovascular risk factors and their
+association with all-cause and cardiovascular mortality, using the National Health
+and Nutrition Examination Survey (NHANES) linked to the CDC/NCHS Public-Use Linked
+Mortality File.
+
+**Why this project:** built to demonstrate the workflow of a longitudinal
+cardiovascular epidemiology cohort analysis — data management, a written statistical
+analysis plan, table shells, and Cox proportional hazards regression — the same core
+tasks as an NHLBI-funded cohort study such as [ARIC](https://sites.cscc.unc.edu/aric/).
+NHANES was chosen because, like ARIC, it is a nationally recognized cohort with public,
+freely downloadable exam and mortality follow-up data, so the full pipeline can be
+reproduced by anyone from raw data to final report.
+
+## Data Source
+
+- **NHANES 1999–2000** exam and questionnaire components (demographics, body
+  measures, blood pressure, cholesterol, smoking, diabetes). Public domain,
+  distributed by CDC/NCHS as SAS transport (`.xpt`) files:
+  https://wwwn.cdc.gov/nchs/nhanes/Default.aspx
+- **NHANES Public-Use Linked Mortality File** (through the most recent NCHS
+  mortality follow-up period), providing person-time of follow-up and vital status:
+  https://www.cdc.gov/nchs/data-linkage/mortality-public.htm
+
+Raw data files are not committed to this repo (see `data/raw/README.md` for why and
+how to obtain them) — only derived, de-identified summary tables and code are tracked.
+
+## Repository Structure
+
+```
+nhanes-cvd-mortality-project/
+├── README.md
+├── docs/
+│   ├── statistical_analysis_plan.md   # written SAP, produced before any analysis
+│   └── data_dictionary.md             # variable list, source file, coding
+├── data/
+│   └── raw/                           # NHANES .xpt files + mortality file (gitignored)
+├── sas/
+│   ├── 01_import_nhanes.sas           # read .xpt components into native SAS datasets
+│   ├── 02_import_mortality.sas        # read the NCHS mortality linkage file
+│   ├── 03_merge_and_derive.sas        # merge components, apply eligibility, derive variables
+│   ├── 04_table1.sas                  # Table 1 shell: baseline characteristics
+│   └── 05_cox_regression.sas          # Cox proportional hazards models
+└── output/
+    ├── tables/                        # ODS RTF/PDF table output
+    └── figures/                       # Kaplan-Meier curves, diagnostics
+```
+
+## Reproducing the Analysis
+
+1. Download the NHANES 1999–2000 components and mortality file listed above into
+   `data/raw/` (see `data/raw/README.md`).
+2. Run the SAS programs in `sas/` in numeric order in SAS OnDemand for Academics
+   (or any SAS 9.4+ environment).
+3. Formatted tables and figures are written to `output/`.
+
+## Status
+
+Work in progress — see `docs/statistical_analysis_plan.md` for the current analysis
+plan and open decisions.
