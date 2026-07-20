@@ -33,7 +33,7 @@ next to the filled-in version produced from the actual analysis.
 | Race/ethnicity, % |  |  |  |
 
 **Filled version:** [full SAS output, as images](full_output_tables.md#table-1--baseline-characteristics)
-(or the [PDF](../output/tables/table1_baseline_characteristics.pdf) / [RTF](../output/tables/table1_baseline_characteristics.rtf) directly)
+(or the [RTF](../output/tables/table1_baseline_characteristics.rtf) directly)
 — see `docs/results_summary.md` for the key numbers in plain language.
 
 ---
@@ -65,5 +65,5 @@ next to the filled-in version produced from the actual analysis.
 | Diabetes | X.XX (X.XX–X.XX) | X.XXX |
 
 **Filled versions:** [full SAS output, as images](full_output_tables.md#tables-2--3--cox-proportional-hazards-models)
-(contains both Tables 2 and 3; or the [PDF](../output/tables/table2_cox_models.pdf) / [RTF](../output/tables/table2_cox_models.rtf) directly)
+(contains both Tables 2 and 3; or the [RTF](../output/tables/table2_cox_models.rtf) directly)
 — see `docs/results_summary.md` for interpretation.
