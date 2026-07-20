@@ -41,11 +41,17 @@ across all causes of death.
 
 ## Figures
 
-**Kaplan-Meier survival by smoking status:**
+**Figure 1. Kaplan-Meier survival by smoking status.** Unadjusted probability
+of survival over ~20 years of follow-up, stratified by baseline smoking
+status, with 95% confidence bands. Never smokers show consistently higher
+survival than current or former smokers (see note below on former smoking).
 
 ![Kaplan-Meier survival curves by smoking status](../output/figures/km_by_smoking.png)
 
-**Kaplan-Meier survival by diabetes status:**
+**Figure 2. Kaplan-Meier survival by diabetes status.** Same population and
+follow-up period, stratified by baseline diabetes diagnosis. A consistent,
+widening survival disadvantage for participants with diabetes, consistent
+with the adjusted hazard ratio of 1.65 reported above.
 
 ![Kaplan-Meier survival curves by diabetes status](../output/figures/km_by_diabetes.png)
 
