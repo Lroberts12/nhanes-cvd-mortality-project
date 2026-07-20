@@ -1,5 +1,7 @@
 # Exclude generated output and third-party reference material from GitHub's
 # language statistics, so the language bar reflects the actual SAS code.
 output/tables/*.rtf linguist-generated=true
+output/tables/*.pdf linguist-generated=true
+output/figures/* linguist-generated=true
 data/raw/*.htm linguist-vendored=true
 data/raw/SAS_ReadInProgramAllSurveys.sas linguist-vendored=true

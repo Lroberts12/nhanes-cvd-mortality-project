@@ -33,7 +33,9 @@ nhanes-cvd-mortality-project/
 ├── README.md
 ├── docs/
 │   ├── statistical_analysis_plan.md   # written SAP, produced before any analysis
-│   └── data_dictionary.md             # variable list, source file, coding
+│   ├── table_shells.md                # blank table shells alongside the filled-in results
+│   ├── results_summary.md             # findings, in plain language
+│   └── bias_and_limitations.md        # bias-mitigation decisions and their tradeoffs
 ├── data/
 │   └── raw/                           # NHANES .xpt files + mortality file (gitignored)
 ├── sas/
@@ -41,7 +43,8 @@ nhanes-cvd-mortality-project/
 │   ├── 02_import_mortality.sas        # read the NCHS mortality linkage file
 │   ├── 03_merge_and_derive.sas        # merge components, apply eligibility, derive variables
 │   ├── 04_table1.sas                  # Table 1 shell: baseline characteristics
-│   └── 05_cox_regression.sas          # Cox proportional hazards models
+│   ├── 05_cox_regression.sas          # Cox proportional hazards models
+│   └── 06_km_curves.sas               # Kaplan-Meier survival curves (PROC SGPLOT)
 └── output/
     ├── tables/                        # ODS RTF/PDF table output
     └── figures/                       # Kaplan-Meier curves, diagnostics
@@ -55,7 +58,24 @@ nhanes-cvd-mortality-project/
    (or any SAS 9.4+ environment).
 3. Formatted tables and figures are written to `output/`.
 
+## Results
+
+**Kaplan-Meier survival by smoking status:**
+
+![Kaplan-Meier survival curves by smoking status](output/figures/km_by_smoking.png)
+
+**Kaplan-Meier survival by diabetes status:**
+
+![Kaplan-Meier survival curves by diabetes status](output/figures/km_by_diabetes.png)
+
+- [Table shells (blank) alongside filled-in results](docs/table_shells.md)
+- [Table 1 — Baseline Characteristics (PDF)](output/tables/table1_baseline_characteristics.pdf)
+- [Table 2/3 — Cox Proportional Hazards Models (PDF)](output/tables/table2_cox_models.pdf)
+- [Results summary, in plain language](docs/results_summary.md)
+- [Bias-mitigation decisions and their tradeoffs](docs/bias_and_limitations.md)
+
 ## Status
 
-Analysis complete. See `docs/statistical_analysis_plan.md` for the analysis plan
-and `docs/results_summary.md` for findings, including limitations.
+Analysis complete. See `docs/statistical_analysis_plan.md` for the analysis plan,
+`docs/results_summary.md` for findings, and `docs/bias_and_limitations.md` for
+how bias was considered and handled at each stage.

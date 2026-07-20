@@ -39,6 +39,31 @@ despite not reaching significance for all-cause mortality — consistent with ob
 mortality risk being concentrated in cardiovascular causes rather than distributed
 across all causes of death.
 
+## Figures
+
+**Kaplan-Meier survival by smoking status:**
+
+![Kaplan-Meier survival curves by smoking status](../output/figures/km_by_smoking.png)
+
+**Kaplan-Meier survival by diabetes status:**
+
+![Kaplan-Meier survival curves by diabetes status](../output/figures/km_by_diabetes.png)
+
+### A note on the smoking curve: crude vs. adjusted effects
+
+The unadjusted smoking KM plot appears to show "Former" smokers with survival
+nearly as poor as "Current" smokers, both well below "Never" smokers. This
+looks inconsistent with the *adjusted* Cox results above, where former
+smoking was not a significant predictor (HR 1.03) while current smoking was
+(HR 2.52) — but it isn't a contradiction, it's confounding. Former smokers
+are, on average, older than current smokers (they've had more time to quit),
+so some of the apparent "former smoking hurts survival" in the crude,
+unadjusted plot is really an age effect showing through. Once the Cox model
+adjusts for age, that apparent penalty for former smoking disappears,
+leaving only current smoking as an independent predictor. This is a concrete
+illustration of exactly the kind of confounding `docs/statistical_analysis_plan.md`
+was written to guard against by specifying adjustment covariates in advance.
+
 ## Model Diagnostics
 
 A time-interaction term for systolic blood pressure was non-significant (p=0.94),
