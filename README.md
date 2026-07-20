@@ -60,6 +60,8 @@ nhanes-cvd-mortality-project/
 
 ## Results
 
+![Kaplan-Meier survival curves by smoking status](output/figures/km_by_smoking.png)
+
 **Figure 1. Kaplan-Meier survival by smoking status.** Unadjusted probability
 of survival over ~20 years of follow-up among NHANES 1999–2000 participants
 aged ≥45, stratified by baseline smoking status, with 95% confidence bands.
@@ -68,14 +70,13 @@ smokers. See the note in `docs/results_summary.md` on why former smoking
 appears similar to current smoking here despite not being significant in
 the adjusted Cox model — a confounding-by-age effect.
 
-![Kaplan-Meier survival curves by smoking status](output/figures/km_by_smoking.png)
+![Kaplan-Meier survival curves by diabetes status](output/figures/km_by_diabetes.png)
 
 **Figure 2. Kaplan-Meier survival by diabetes status.** Same population and
 follow-up period, stratified by baseline diabetes diagnosis. Participants
 with diabetes show a consistent, widening survival disadvantage over time,
 consistent with the adjusted hazard ratio of 1.65 reported below.
 
-![Kaplan-Meier survival curves by diabetes status](output/figures/km_by_diabetes.png)
 
 - [Table shells (blank) alongside filled-in results](docs/table_shells.md)
 - [Full SAS output tables, as images](docs/full_output_tables.md) (GitHub's inline PDF preview is unreliable for some files — these always render)
