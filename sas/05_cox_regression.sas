@@ -5,7 +5,7 @@
   cardiovascular mortality, per docs/statistical_analysis_plan.md Section 5.
 *******************************************************************************/
 
-%let root = /home/u12345678/nhanes-cvd-mortality-project;  /* <-- update this */
+%let root = /home/u64553528/sasuser.v94/nhanes-cvd-mortality-project;
 libname proj "&root./data/derived";
 
 ods rtf file="&root./output/tables/table2_cox_models.rtf" style=journal;
@@ -19,7 +19,7 @@ proc surveyphreg data=proj.analytic;
   cluster sdmvpsu;
   weight wtmec2yr;
   class smoke_status (ref="Never") bmi_cat (ref="Normal") diabetes (ref="0") / param=ref;
-  model fu_months*died_allcause(0) = sbp_avg lbxtc lbdhdd smoke_status bmi_cat diabetes;
+  model fu_months*died_allcause(0) = sbp_avg lbxtc lbdhdl smoke_status bmi_cat diabetes;
   hazardratio 'Systolic BP (per 10 mmHg)' sbp_avg / units=10;
   hazardratio 'Total cholesterol (per 40 mg/dL)' lbxtc / units=40;
   hazardratio smoke_status;
@@ -34,7 +34,7 @@ proc surveyphreg data=proj.analytic;
   weight wtmec2yr;
   class smoke_status (ref="Never") bmi_cat (ref="Normal") diabetes (ref="0")
         riagendr (ref="1") ridreth1 (ref="3") / param=ref;
-  model fu_months*died_allcause(0) = sbp_avg lbxtc lbdhdd smoke_status bmi_cat
+  model fu_months*died_allcause(0) = sbp_avg lbxtc lbdhdl smoke_status bmi_cat
         diabetes ridageyr riagendr ridreth1 dmdeduc2;
   hazardratio 'Systolic BP (per 10 mmHg)' sbp_avg / units=10;
   hazardratio 'Total cholesterol (per 40 mg/dL)' lbxtc / units=40;
@@ -50,7 +50,7 @@ proc surveyphreg data=proj.analytic;
   weight wtmec2yr;
   class smoke_status (ref="Never") bmi_cat (ref="Normal") diabetes (ref="0")
         riagendr (ref="1") ridreth1 (ref="3") / param=ref;
-  model fu_months*died_cvd(0) = sbp_avg lbxtc lbdhdd smoke_status bmi_cat
+  model fu_months*died_cvd(0) = sbp_avg lbxtc lbdhdl smoke_status bmi_cat
         diabetes ridageyr riagendr ridreth1 dmdeduc2;
 run;
 
@@ -63,8 +63,8 @@ title;
    terms, not as the inferential model. */
 proc phreg data=proj.analytic;
   class smoke_status (ref="Never") bmi_cat (ref="Normal") / param=ref;
-  model fu_months*died_allcause(0) = sbp_avg lbxtc lbdhdd smoke_status bmi_cat
-        diabetes ridageyr;
   sbp_time = sbp_avg * log(fu_months);
+  model fu_months*died_allcause(0) = sbp_avg lbxtc lbdhdl smoke_status bmi_cat
+        diabetes ridageyr sbp_time;
   ph_test: test sbp_time;
 run;

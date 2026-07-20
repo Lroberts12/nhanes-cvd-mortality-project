@@ -5,7 +5,7 @@
   accounting for the NHANES complex survey design (strata, PSU, exam weights).
 *******************************************************************************/
 
-%let root = /home/u12345678/nhanes-cvd-mortality-project;  /* <-- update this */
+%let root = /home/u64553528/sasuser.v94/nhanes-cvd-mortality-project;
 libname proj "&root./data/derived";
 
 ods rtf file="&root./output/tables/table1_baseline_characteristics.rtf" style=journal;
@@ -18,7 +18,7 @@ proc surveymeans data=proj.analytic mean stderr;
   strata sdmvstra;
   cluster sdmvpsu;
   weight wtmec2yr;
-  var ridageyr sbp_avg lbxtc lbdhdd bmxbmi;
+  var ridageyr sbp_avg lbxtc lbdhdl bmxbmi;
   domain died_allcause;
 run;
 

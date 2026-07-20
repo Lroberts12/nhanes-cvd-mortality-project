@@ -57,5 +57,5 @@ nhanes-cvd-mortality-project/
 
 ## Status
 
-Work in progress — see `docs/statistical_analysis_plan.md` for the current analysis
-plan and open decisions.
+Analysis complete. See `docs/statistical_analysis_plan.md` for the analysis plan
+and `docs/results_summary.md` for findings, including limitations.

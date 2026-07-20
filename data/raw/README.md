@@ -19,10 +19,12 @@ and download these components as SAS Transport (`.xpt`) files:
 | SMQ | Smoking questionnaire |
 | DIQ | Diabetes questionnaire |
 
-From https://www.cdc.gov/nchs/data-linkage/mortality-public.htm, download the
-**public-use linked mortality file for the 1999–2000 cycle**, along with the SAS
-input program NCHS provides on that same page for reading the fixed-width file —
-use their program rather than a hand-written one, since a wrong byte offset would
-silently misalign every record.
+From https://ftp.cdc.gov/pub/health_statistics/NCHS/datalinkage/linked_mortality/,
+download:
+- `NHANES_1999_2000_MORT_2019_PUBLIC.dat` — the mortality data
+- `SAS_ReadInProgramAllSurveys.sas` — NCHS's universal SAS read-in program
+
+Use their program to read the fixed-width `.dat` file rather than a hand-written
+one, since a wrong byte offset would silently misalign every record.
 
 Keep the original file names; the `sas/` programs reference them directly.

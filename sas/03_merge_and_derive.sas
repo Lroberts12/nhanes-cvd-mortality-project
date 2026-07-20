@@ -6,14 +6,14 @@
   docs/statistical_analysis_plan.md.
 *******************************************************************************/
 
-%let root = /home/u12345678/nhanes-cvd-mortality-project;  /* <-- update this */
+%let root = /home/u64553528/sasuser.v94/nhanes-cvd-mortality-project;
 libname proj "&root./data/derived";
 
 /* Sort each component by SEQN before merging */
 proc sort data=work.demo;  by seqn; run;
 proc sort data=work.bmx;   by seqn; run;
 proc sort data=work.bpx;   by seqn; run;
-proc sort data=work.tchol; by seqn; run;
+proc sort data=work.lab13; by seqn; run;
 proc sort data=work.smq;   by seqn; run;
 proc sort data=work.diq;   by seqn; run;
 proc sort data=proj.mortality; by seqn; run;
@@ -22,7 +22,7 @@ data proj.analytic (label="Analytic dataset: CVD risk factors and mortality");
   merge work.demo (in=a)
         work.bmx  (in=b)
         work.bpx
-        work.tchol
+        work.lab13
         work.smq
         work.diq
         proj.mortality (in=m);
@@ -61,16 +61,16 @@ data proj.analytic (label="Analytic dataset: CVD risk factors and mortality");
 
   /* --- Outcomes --- */
   died_allcause = (mortstat = 1);
-  died_cvd = (mortstat = 1 and ucod_leading = 1);   /* 1 = diseases of heart, per NCHS recode */
+  died_cvd = (mortstat = 1 and ucod_leading = "001");   /* "001" = diseases of heart, per NCHS recode */
   fu_months = permth_exm;                            /* follow-up time from exam date */
 
   /* Exclude records missing key analytic variables */
-  if nmiss(sbp_avg, lbxtc, lbdhdd, bmxbmi) = 0
+  if nmiss(sbp_avg, lbxtc, lbdhdl, bmxbmi) = 0
      and smoke_status ne "Missing";
 run;
 
 proc means data=proj.analytic n nmiss;
-  var ridageyr sbp_avg lbxtc lbdhdd bmxbmi fu_months;
+  var ridageyr sbp_avg lbxtc lbdhdl bmxbmi fu_months;
 run;
 
 proc freq data=proj.analytic;

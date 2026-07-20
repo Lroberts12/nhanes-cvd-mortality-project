@@ -12,7 +12,7 @@
     e.g. after uploading the project folder to "My Folder")
 *******************************************************************************/
 
-%let root = /home/u12345678/nhanes-cvd-mortality-project;  /* <-- update this */
+%let root = /home/u64553528/sasuser.v94/nhanes-cvd-mortality-project;
 
 libname raw "&root./data/raw";
 libname proj "&root./data/derived";  /* create this folder if it doesn't exist */
@@ -21,7 +21,7 @@ libname proj "&root./data/derived";  /* create this folder if it doesn't exist *
 libname demo_x xport "&root./data/raw/DEMO.xpt";
 libname bmx_x  xport "&root./data/raw/BMX.xpt";
 libname bpx_x  xport "&root./data/raw/BPX.xpt";
-libname chol_x xport "&root./data/raw/TCHOL.xpt";   /* confirm exact file name against codebook */
+libname chol_x xport "&root./data/raw/LAB13.xpt";   /* 1999-2000 cycle: total + HDL cholesterol, vars LBXTC/LBDHDL */
 libname smq_x  xport "&root./data/raw/SMQ.xpt";
 libname diq_x  xport "&root./data/raw/DIQ.xpt";
 
