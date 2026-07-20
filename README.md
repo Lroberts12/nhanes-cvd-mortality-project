@@ -78,8 +78,7 @@ consistent with the adjusted hazard ratio of 1.65 reported below.
 ![Kaplan-Meier survival curves by diabetes status](output/figures/km_by_diabetes.png)
 
 - [Table shells (blank) alongside filled-in results](docs/table_shells.md)
-- [Table 1 — Baseline Characteristics (PDF)](output/tables/table1_baseline_characteristics.pdf)
-- [Table 2/3 — Cox Proportional Hazards Models (PDF)](output/tables/table2_cox_models.pdf)
+- [Full SAS output tables, as images](docs/full_output_tables.md) (GitHub's inline PDF preview is unreliable for some files — these always render)
 - [Results summary, in plain language](docs/results_summary.md)
 - [Bias-mitigation decisions and their tradeoffs](docs/bias_and_limitations.md)
 

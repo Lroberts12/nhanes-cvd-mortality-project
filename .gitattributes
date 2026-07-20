@@ -3,5 +3,7 @@
 output/tables/*.rtf linguist-generated=true
 output/tables/*.pdf linguist-generated=true
 output/figures/* linguist-generated=true
+output/tables/table1_pages/* linguist-generated=true
+output/tables/table2_pages/* linguist-generated=true
 data/raw/*.htm linguist-vendored=true
 data/raw/SAS_ReadInProgramAllSurveys.sas linguist-vendored=true
