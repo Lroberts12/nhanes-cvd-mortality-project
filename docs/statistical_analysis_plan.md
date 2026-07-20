@@ -76,9 +76,29 @@ Table 1, to make attrition transparent (bias mitigation).*
 - Brief written report interpreting findings in the context of the existing
   cardiovascular epidemiology literature.
 
-## Open Items
+## Open Items (resolved)
 
-- [ ] Confirm exact NHANES lab component file names for the 1999–2000 cycle
-      against the current codebook (file naming has varied slightly by cycle).
-- [ ] Confirm current end date of NCHS mortality follow-up for this cycle.
-- [ ] Decide on final missing-data approach (complete case vs. imputation).
+- [x] Confirm exact NHANES lab component file names for the 1999–2000 cycle
+      against the current codebook. Resolved: the 1999-2000 cycle uses `LAB13`
+      (containing both `LBXTC` and `LBDHDL`), not the `TCHOL`/`HDL` naming
+      used in later cycles.
+- [x] Confirm current end date of NCHS mortality follow-up for this cycle.
+      Resolved: using the 2019 public-use linked mortality file
+      (`NHANES_1999_2000_MORT_2019_PUBLIC.dat`), i.e. follow-up through
+      December 31, 2019.
+- [x] Decide on final missing-data approach. Resolved: complete-case analysis
+      was used (see `docs/bias_and_limitations.md` Section 3 for the
+      tradeoff this involves, particularly for the smoking subsample).
+
+## Amendments
+
+This plan is left as originally written above, with deviations from it
+disclosed here rather than edited in, since silently rewriting a pre-specified
+plan to match what was actually done defeats its purpose.
+
+- **Section 6 stated that "the baseline exam excludes prevalent CVD where
+  flagged."** This was not implemented: NHANES 1999-2000's single baseline
+  exam does not include a variable suitable for cleanly flagging prevalent
+  cardiovascular disease for this purpose, so no such exclusion was applied.
+  This is disclosed as an unaddressed reverse-causation limitation in
+  `docs/bias_and_limitations.md` Section 4, rather than silently dropped.

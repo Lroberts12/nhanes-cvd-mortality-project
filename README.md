@@ -34,6 +34,7 @@ nhanes-cvd-mortality-project/
 ├── docs/
 │   ├── statistical_analysis_plan.md   # written SAP, produced before any analysis
 │   ├── table_shells.md                # blank table shells alongside the filled-in results
+│   ├── full_output_tables.md          # complete SAS ODS output, as images
 │   ├── results_summary.md             # findings, in plain language
 │   └── bias_and_limitations.md        # bias-mitigation decisions and their tradeoffs
 ├── data/
@@ -46,7 +47,7 @@ nhanes-cvd-mortality-project/
 │   ├── 05_cox_regression.sas          # Cox proportional hazards models
 │   └── 06_km_curves.sas               # Kaplan-Meier survival curves (PROC SGPLOT)
 └── output/
-    ├── tables/                        # ODS RTF/PDF table output
+    ├── tables/                        # ODS RTF output + PNG images for viewing
     └── figures/                       # Kaplan-Meier curves, diagnostics
 ```
 
@@ -75,7 +76,7 @@ the adjusted Cox model — a confounding-by-age effect.
 **Figure 2. Kaplan-Meier survival by diabetes status.** Same population and
 follow-up period, stratified by baseline diabetes diagnosis. Participants
 with diabetes show a consistent, widening survival disadvantage over time,
-consistent with the adjusted hazard ratio of 1.65 reported below.
+consistent with the adjusted hazard ratio of 1.65 in the results summary below.
 
 
 - [Table shells (blank) alongside filled-in results](docs/table_shells.md)

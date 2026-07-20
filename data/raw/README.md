@@ -15,7 +15,7 @@ and download these components as SAS Transport (`.xpt`) files:
 | DEMO | Demographics |
 | BMX | Body measures |
 | BPX | Blood pressure |
-| Cholesterol (Total + HDL) | Lab component, exact file name varies by cycle — check the current codebook page |
+| Cholesterol (Total + HDL) | `LAB13` for the 1999-2000 cycle specifically (later cycles use `TCHOL`/`HDL` naming instead) |
 | SMQ | Smoking questionnaire |
 | DIQ | Diabetes questionnaire |
 
